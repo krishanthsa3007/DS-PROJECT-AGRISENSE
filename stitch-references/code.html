@@ -1,0 +1,1212 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+      }
+      * {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+      main > :first-child {
+        margin-top: 0 !important;
+      }
+      main > :last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    .font-helvetica {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    .glass-panel {
+      background: rgba(18, 30, 23, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 16px 36px -12px rgba(0, 0, 0, 0.45);
+    }
+    .glass-nav {
+      background: rgba(12, 21, 16, 0.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.6);
+    }
+  </style>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "error": "#ffb4ab",
+            "surface": "#0c1510",
+            "on-secondary-container": "#fdce73",
+            "on-tertiary-fixed-variant": "#384d16",
+            "outline": "#889489",
+            "on-primary": "#00391f",
+            "primary-container": "#2d6a4f",
+            "on-primary-container": "#e2ddd5",
+            "on-secondary-fixed-variant": "#5d4200",
+            "on-background": "#f4f0e8",
+            "background": "#0c1510",
+            "on-tertiary": "#223601",
+            "tertiary-fixed": "#d0eca3",
+            "on-primary-fixed-variant": "#00522f",
+            "on-error": "#690005",
+            "surface-container-highest": "#28342b",
+            "surface-tint": "#3ea06b",
+            "on-primary-fixed": "#002110",
+            "inverse-on-surface": "#28332c",
+            "on-error-container": "#ffdad6",
+            "primary": "#3ea06b",
+            "surface-container-lowest": "#07100b",
+            "surface-container": "#142018",
+            "inverse-primary": "#006d40",
+            "on-tertiary-fixed": "#121f00",
+            "outline-variant": "#2b3b30",
+            "surface-container-low": "#0f1a14",
+            "primary-fixed": "#95f7ba",
+            "on-surface": "#f4f0e8",
+            "surface-container-high": "#1b2a20",
+            "on-tertiary-container": "#1c2f00",
+            "secondary-fixed": "#ffdea4",
+            "tertiary-fixed-dim": "#a3be7a",
+            "on-secondary": "#412d00",
+            "error-container": "#93000a",
+            "surface-dim": "#0c1510",
+            "tertiary": "#a3be7a",
+            "surface-bright": "#2c3b31",
+            "secondary-fixed-dim": "#eec067",
+            "tertiary-container": "#4d6b38",
+            "primary-fixed-dim": "#3ea06b",
+            "on-surface-variant": "#c5cec5",
+            "inverse-surface": "#f4f0e8",
+            "on-secondary-fixed": "#261900",
+            "surface-variant": "#223026",
+            "secondary": "#dfb15b",
+            "secondary-container": "#5d4300"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.375rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "gutter-mobile": "0.75rem",
+            "margin": "2rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.25rem"
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary selection:text-on-primary min-h-screen">
+<!-- FLOATING GLASS NAVIGATION CAPSULE -->
+<aside aria-label="Main Navigation" class="fixed top-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+<header class="w-full max-w-6xl glass-nav rounded-2xl md:rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between pointer-events-auto transition-all duration-300">
+<!-- Left: AgriSense Logo -->
+<a class="flex items-center gap-2.5 focus:outline-none focus:ring-1 focus:ring-primary rounded-lg group" data-path="home" href="#">
+<img src="https://lh3.googleusercontent.com/aida/AEtjO1UQuC8TMW4Bl0NrJO0j-dQL_LFrNlK9W1kSFRBnAX9UjY-pro42Cuk22abQ2b6HHK8ONPBTMESiUpREosQyIK2PpDW6tZ4DVm9Rdxx3QIpjaEaPkvqd-hdkR-WUD4gfkqv7xmzzXOvjlN0AiCMukL_2KN01E4E24OVJ0TJagb6WCB_LXigZd_3s6zxGbZXTIYU5tjyMo-3-VmJqEa_pRzS5qO-CIXFjHCRNwI2twgtlXiJcLonx1oAdnJQ" alt="AgriSense Bio Leaf Icon" class="w-8 h-8 object-contain">
+<div class="flex flex-col">
+<span class="font-bold text-[16px] tracking-tight text-on-surface leading-tight">AgriSense</span>
+<span class="text-[9px] uppercase tracking-wider text-outline font-semibold">Precision Agronomy</span>
+</div>
+</a>
+<!-- Center: Navigation Links -->
+<nav class="hidden lg:flex items-center gap-6" data-active-classes="text-primary font-bold">
+<a aria-current="page" class="text-[13px] font-semibold text-primary transition-colors hover:text-primary" data-path="home" href="#">Home</a>
+<a class="text-[13px] font-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="field-intelligence" href="#field-intelligence">Field Intelligence</a>
+<a class="text-[13px] font-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="recommendation" href="#recommendation-engine">Recommendation</a>
+<a class="text-[13px] font-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="soil-data" href="#soil-data">Soil Data</a>
+<a class="text-[13px] font-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="weather" href="#weather-feed">Weather</a>
+<a class="text-[13px] font-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="model-insights" href="#model-insights">Model Insights</a>
+<a class="text-[13px] font-medium text-on-surface-variant hover:text-on-surface transition-colors" data-path="about" href="#about">About</a>
+</nav>
+<!-- Right: Mode & Action -->
+<div class="flex items-center gap-3">
+<button class="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors focus:outline-none" title="Canopy Darkness Mode" type="button">
+<span class="material-symbols-outlined text-[18px]">dark_mode</span>
+</button>
+<a class="inline-flex items-center justify-center h-8 px-4 rounded-full bg-primary text-on-primary font-semibold text-[12px] hover:bg-primary-container transition-all focus:outline-none shadow-sm" href="#recommendation-engine">
+<span class="material-symbols-outlined text-[15px] mr-1.5">query_stats</span>Analyze Field
+        </a>
+</div>
+</header>
+</aside>
+<main class="w-full pt-20 bg-surface">
+<div class="flex flex-col w-full">
+<!-- ACT 1: HERO SEQUENCE -->
+<section class="relative w-full overflow-hidden bg-surface text-on-surface pt-6">
+<div class="relative w-full max-w-7xl mx-auto px-margin-mobile md:px-margin pt-space-lg pb-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- Text Narrative Column -->
+<div class="lg:col-span-6 flex flex-col gap-space-md z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/50 w-fit">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[11px] font-semibold tracking-wider uppercase text-on-surface-variant">Precision Agronomy Mesh Active</span>
+</div>
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-on-surface tracking-tight leading-[1.12] max-w-xl">
+                Understand the field. <span class="font-normal text-tertiary">Grow with confidence.</span>
+</h1>
+<p class="text-[16px] leading-relaxed text-on-surface-variant max-w-lg">
+                AI-powered precision agriculture for grounded decisions. Observe soil biological dynamics, hyper-local microclimates, and dynamic crop health across every acre.
+              </p>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<a class="inline-flex items-center justify-center h-11 px-6 rounded-lg bg-primary text-on-primary font-semibold text-[13px] hover:bg-primary-container transition-all shadow-md" href="#recommendation-engine">
+<span class="material-symbols-outlined text-[18px] mr-2">analytics</span>
+                  Analyze your field
+                </a>
+<a class="inline-flex items-center justify-center h-11 px-6 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface hover:bg-surface-container-high transition-colors font-medium text-[13px]" href="#how-it-works">
+                  Explore AgriSense
+                </a>
+</div>
+<div class="pt-space-sm flex items-center gap-2.5 text-outline">
+<span class="material-symbols-outlined text-[16px] animate-bounce">arrow_downward</span>
+<span class="text-[11px] uppercase tracking-widest text-outline font-medium">Scroll to explore field journey</span>
+</div>
+</div>
+<!-- 6-Stage Narrative Stage Viewer -->
+<div class="lg:col-span-6 flex flex-col gap-space-sm">
+<div class="relative w-full rounded-xl bg-surface-container overflow-hidden shadow-xl aspect-[16/11] border border-outline-variant/30">
+<!-- Dynamic Stage Images (Image Carousel controlled by tabs) -->
+<div class="relative w-full h-full" id="scene-image-container">
+<img alt="Authentic documentary photography of rich dark loam soil cupped in farmer hands" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100" id="scene-img-1" src="https://lh3.googleusercontent.com/aida/AEtjO1WRVVOTPjbDnfZk_rA91E4tUxBAV-yRlesG60ZENzU1EQH7Bg6vpHfXC0yYb8pm1CZS-jiXozVZauJ7GFQx82U1LtPuZGvVssdhB2ZGtk8F5Ze7TynXGT6t3ArsKBzccw2wRiTkBMsyP0pliwrwhGSPZzSRBujH4Alx9580l0vPuOaARtNrrMBBPBr59-SxIjxd6OqkhgNcZKzBNAsetmgg5in4WKRy-2CmeRMRHz46fUbLUNO1vHn5qN0">
+<img alt="Germinated seed pushing roots through damp rich soil" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" id="scene-img-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfdPHs9usX__BbCIyNLURSzkj3RPek_rtQn3SKWNnO9UTKsQo4hDM-8X5zjbDzU8l0WAYmc_7ZpV6wUQ2bgrD9m6V3ux629KzWmPozFtfWA_aZic6_Z3N6pRckgT01eB3LwUyf15c3kfMPQPVFG438JTSLpSYl7rwMRLF39JglWjsIMOV-YsiQ6TwDL9ce-Eo5aOcPXAgieq6D23s_eerRPpAeu31HjhX3SNjv-PuH8MT7fKYKp8dm">
+<img alt="Young green rice stalks in flooded paddy field" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" id="scene-img-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4fIRk_DcEaOKa1QajI3CXwzaR8rPtjDr1LN5De29o1yQmVtgNa2v2aJf3iLW1Qbo1vDPkIhuLMe_n0uEzLdBN_rKdz3uT50zHhu8kx1SSX10sveEp94kKfzuR97DgyeYcp2TS3LXnYB7ZX8mqgN_bycdC7_8QLFVxrWzhAwT2zaFgXvl6_lOOm8K8sMJ1wUPPeZlMoEny6sw_2ZK4KwA7QZBeFxWYgWIWHoX0MLOo2AyTqLbChSbc">
+<img alt="Terraced rice fields in mountain foothills" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" id="scene-img-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoXfkx6MhsVDPFA2IGLCJ3M1ouLOYsYgq1uw8KrZ5Lmg1vOZAm6Rj6r62X-OOsb0UbhJfyu5bOPm1gGDTR9UDOy1tAIfuU7Lixob9yGvemLPW8lupJB7q6dP3IXIokjRlt08RjGzoNW1gUARiM3N4x0pJ95-FdCgBT_n9mn8JLay5vtPnd-BWBH_t9AVwdIGrfFinxBoU27lKbcOGiTnURGMgX0xk3_0R3TaCUi2CBDTCmWwCnmSBU">
+<img alt="High precision agronomic aerial view of agricultural parcels" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" id="scene-img-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxgE_Rd1xHTW96kWCA6FgAKhDIrqjby73uz8Hbxp-Xvf-Rc7gVkwsMG3DYUs23J10HrnTqF15qLMRpytXf9HxpLgbqx7RT_fQ3WXzbuyRZy7rQgh_4Dd4gSO8UI4RuyulGpAqhCLOh85YOuyyhTG963zXzATBaNgw29b7lfVwDGtIHsNg96O0gyX2NhUP5SYX3AFhwmsMQTgfGeB2Qx87fjGO9IKJdwVmx5gIzuFe6EWgZfura8Lcn">
+<img alt="Panoramic fertile farmland at sunset" class="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-0" id="scene-img-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKyayNcj0JGJBKG_QEHexkR95QvCN9jNA-X9z11Dkcerxz2_Y0WnVkHWPSQB4frfEd_iCwnK-Ma8J1z3xb1r364g1JNllluJluGnAIxHGPVn83KJosQUAAFjtYCbg_w17CPJYhraWm60DolAPLbPnTe4Wc79vkY61Ii7q7vu5nYKrsqP85zDShXof2jWl8_fHi9sDDgF3SFj0EhNSyqZbRk-g8u6zayZO8Svp4O86wpG_D0tdbmE79">
+</div>
+<!-- In-situ telemetry vignette overlay -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/30 to-transparent pointer-events-none"></div>
+<!-- Active Phase Overlay Banner -->
+<div class="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-surface-container-high/90 backdrop-blur border border-outline-variant/40 flex flex-col sm:flex-row sm:items-center justify-between gap-2 z-10">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-primary/20 text-primary" id="scene-phase-badge">Stage 1: Soil</span>
+<span class="text-[12px] font-medium text-on-surface" id="scene-metric-label">Subsurface Loam Layer · Organic Carbon: 2.4%</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+
+</div>
+</div>
+</div>
+<!-- 6-Stage Timeline Controllers -->
+<div class="grid grid-cols-6 gap-1 bg-surface-container-low p-1.5 rounded-lg border border-outline-variant/20">
+<button class="scene-btn active flex flex-col items-center py-2 px-1 rounded transition-colors text-center bg-surface-container-high text-primary text-[12px] font-semibold" data-scene="1" onclick="setHeroScene(1)">
+<span class="text-[10px] text-outline">01</span>
+<span class="truncate w-full text-center">Soil</span>
+</button>
+<button class="scene-btn flex flex-col items-center py-2 px-1 rounded transition-colors text-center text-on-surface-variant hover:bg-surface-container text-[12px] font-medium" data-scene="2" onclick="setHeroScene(2)">
+<span class="text-[10px] text-outline">02</span>
+<span class="truncate w-full text-center">Seed</span>
+</button>
+<button class="scene-btn flex flex-col items-center py-2 px-1 rounded transition-colors text-center text-on-surface-variant hover:bg-surface-container text-[12px] font-medium" data-scene="3" onclick="setHeroScene(3)">
+<span class="text-[10px] text-outline">03</span>
+<span class="truncate w-full text-center">Growth</span>
+</button>
+<button class="scene-btn flex flex-col items-center py-2 px-1 rounded transition-colors text-center text-on-surface-variant hover:bg-surface-container text-[12px] font-medium" data-scene="4" onclick="setHeroScene(4)">
+<span class="text-[10px] text-outline">04</span>
+<span class="truncate w-full text-center">Field</span>
+</button>
+<button class="scene-btn flex flex-col items-center py-2 px-1 rounded transition-colors text-center text-on-surface-variant hover:bg-surface-container text-[12px] font-medium" data-scene="5" onclick="setHeroScene(5)">
+<span class="text-[10px] text-outline">05</span>
+<span class="truncate w-full text-center">Intel</span>
+</button>
+<button class="scene-btn flex flex-col items-center py-2 px-1 rounded transition-colors text-center text-on-surface-variant hover:bg-surface-container text-[12px] font-medium" data-scene="6" onclick="setHeroScene(6)">
+<span class="text-[10px] text-outline">06</span>
+<span class="truncate w-full text-center">Decision</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ACT 2: FIELD INTELLIGENCE — YOUR FIELD, MEASURED (UNOBSTRUCTED AERIAL PHOTO + STRUCTURED METRICS BELOW) -->
+<section class="w-full bg-surface-container-low py-space-xl border-y border-outline-variant/30" id="field-intelligence">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-md gap-space-sm">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-[19px]">satellite_alt</span>
+<span class="text-[11px] font-semibold uppercase tracking-wider text-outline">Orthomosaic Spatial Ingestion</span>
+</div>
+<h2 class="text-2xl md:text-3xl font-bold text-on-surface">Your Field, Measured</h2>
+<p class="text-[14px] text-on-surface-variant max-w-xl mt-1 leading-relaxed">
+                Calibrated multi-spectral spatial radiometry integrated with ground-truth capacitance probes across Parcel #402.
+              </p>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-[12px] font-medium text-on-surface">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="">Reflectance Index: Sentinel-2 L2A</span>
+</div>
+<div class="px-3 py-1.5 rounded-lg bg-surface-container border border-outline-variant/30 text-[12px] font-mono text-outline">
+                14.825° N, 100.142° E
+              </div>
+</div>
+</div>
+<!-- Terrain Map Container: Completely Clean, Unobstructed Aerial Photography -->
+<div class="relative w-full rounded-xl overflow-hidden bg-surface-container border border-outline-variant/30 shadow-xl">
+<div class="relative h-[380px] sm:h-[480px] md:h-[580px] w-full">
+<img alt="Clean aerial view of precision agriculture farm fields with center pivot irrigation and grain tracts" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WtsNTECpgs-rvlVBOh8FTWFd0GjrXUT5T6cYDYxYh1bsPQScojCoGXkPne9FV6hJUdoYJqwAHFAvUSd0TYmBt93-SAdRRpS9GrXB2YDWWOtahlcXFIyjM5qRSmkTfK0wUY0JFsVi6njysr2Qx5NQTHchZ5iWZMGBGWPJ8wfw9KwpqaoFy_JqdXZ5uKe0WYFSOtgwbBvQBrci9lui1NhOVcDRFspeoDsVYjUYzMNxST1W_Xc2IYFRNyhBk">
+</div>
+<!-- Precision Agronomy Instrumentation Panel (Directly Below Image) -->
+<div class="bg-surface-container p-4 md:p-6 border-t border-outline-variant/30">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-[12px] font-bold uppercase tracking-wider text-on-surface">Measured Field Telemetry Strip · Parcel #402</span>
+</div>
+<span class="text-[11px] text-outline font-medium">Calibrated Ground-Truth Matrix (ISO 19156)</span>
+</div>
+<!-- Structured 8-Metric Instrumentation Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5">
+<!-- 1. Soil Moisture -->
+<div class="p-3 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col">
+<div class="flex items-center justify-between text-outline text-[11px] font-medium">
+<span class="">Moisture</span>
+<span class="material-symbols-outlined text-[15px] text-primary">water_drop</span>
+</div>
+<div class="text-[18px] font-bold text-on-surface mt-1">68.2%</div>
+<span class="text-[10px] text-primary font-medium mt-0.5">Target: 60–75%</span>
+</div>
+<!-- 2. Soil pH -->
+<div class="p-3 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col">
+<div class="flex items-center justify-between text-outline text-[11px] font-medium">
+<span class="">Soil pH</span>
+<span class="material-symbols-outlined text-[15px] text-tertiary">science</span>
+</div>
+<div class="text-[18px] font-bold text-on-surface mt-1">6.4</div>
+<span class="text-[10px] text-on-surface-variant font-medium mt-0.5">Neutral Loam</span>
+</div>
+<!-- 3. Canopy Temperature -->
+<div class="p-3 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col">
+<div class="flex items-center justify-between text-outline text-[11px] font-medium">
+<span class="">Canopy Temp</span>
+<span class="material-symbols-outlined text-[15px] text-secondary">thermostat</span>
+</div>
+<div class="text-[18px] font-bold text-on-surface mt-1">27.2°C</div>
+<span class="text-[10px] text-secondary font-medium mt-0.5">Optimal Range</span>
+</div>
+<!-- 4. Nitrogen (N) -->
+<div class="p-3 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col">
+<div class="flex items-center justify-between text-outline text-[11px] font-medium">
+<span class="">Nitrogen (N)</span>
+<span class="material-symbols-outlined text-[15px] text-primary">grass</span>
+</div>
+<div class="text-[18px] font-bold text-on-surface mt-1">142 kg/ha</div>
+<span class="text-[10px] text-primary font-medium mt-0.5">High Reserve</span>
+</div>
+<!-- 5. Phosphorus (P) -->
+<div class="p-3 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col">
+<div class="flex items-center justify-between text-outline text-[11px] font-medium">
+<span class="">Phosphorus (P)</span>
+<span class="material-symbols-outlined text-[15px] text-tertiary">compost</span>
+</div>
+<div class="text-[18px] font-bold text-on-surface mt-1">68.2 kg/ha</div>
+<span class="text-[10px] text-on-surface-variant font-medium mt-0.5">Bray-1 Index</span>
+</div>
+<!-- 6. Potassium (K) -->
+<div class="p-3 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col">
+<div class="flex items-center justify-between text-outline text-[11px] font-medium">
+<span class="">Potassium (K)</span>
+<span class="material-symbols-outlined text-[15px] text-secondary">grain</span>
+</div>
+<div class="text-[18px] font-bold text-on-surface mt-1">78.4 kg/ha</div>
+<span class="text-[10px] text-on-surface-variant font-medium mt-0.5">Sufficient</span>
+</div>
+<!-- 7. Relative Humidity -->
+<div class="p-3 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col">
+<div class="flex items-center justify-between text-outline text-[11px] font-medium">
+<span class="">Humidity</span>
+<span class="material-symbols-outlined text-[15px] text-primary">humidity_percentage</span>
+</div>
+<div class="text-[18px] font-bold text-on-surface mt-1">78%</div>
+<span class="text-[10px] text-outline font-medium mt-0.5">Boundary RH</span>
+</div>
+<!-- 8. Cumulative Rain -->
+<div class="p-3 rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex flex-col">
+<div class="flex items-center justify-between text-outline text-[11px] font-medium">
+<span class="">Cumul. Rain</span>
+<span class="material-symbols-outlined text-[15px] text-primary">cloudy_snowing</span>
+</div>
+<div class="text-[18px] font-bold text-on-surface mt-1">210 mm</div>
+<span class="text-[10px] text-primary font-medium mt-0.5">Profile Adequate</span>
+</div>
+</div>
+<!-- Telemetry Sub-Band -->
+<div class="mt-4 pt-3 border-t border-outline-variant/20 grid grid-cols-2 md:grid-cols-4 gap-3 text-left">
+<div>
+<span class="text-[10px] uppercase tracking-wider text-outline font-medium">Target Acreage</span>
+<div class="text-[14px] font-bold text-on-surface mt-0.5">142.4 Ha (4 Contiguous Pivots)</div>
+</div>
+<div>
+<span class="text-[10px] uppercase tracking-wider text-outline font-medium">Vegetation Index (NDVI)</span>
+<div class="text-[14px] font-bold text-tertiary mt-0.5">0.784 · Dense Foliage</div>
+</div>
+<div>
+<span class="text-[10px] uppercase tracking-wider text-outline font-medium">Nutrient Stability</span>
+<div class="text-[14px] font-bold text-secondary mt-0.5">94 / 100 · Low Leaching</div>
+</div>
+<div>
+<span class="text-[10px] uppercase tracking-wider text-outline font-medium">Telemetry Verification</span>
+<div class="text-[14px] font-bold text-primary mt-0.5">Active In-Situ Synchronization</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ACT 3: HOW AGRISENSE WORKS — 3-STAGE PRODUCT STORY (RESTRAINED GLASSMORPHISM) -->
+<section class="w-full bg-surface py-space-xl" id="how-it-works">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<!-- Section Header -->
+<div class="max-w-2xl mb-space-xl">
+<span class="text-[11px] font-bold text-primary uppercase tracking-wider">Methodology &amp; Pipeline</span>
+<h2 class="text-2xl md:text-3xl font-bold text-on-surface mt-1">From In-Situ Probes to Yield Sovereignty</h2>
+<p class="text-[14px] text-on-surface-variant mt-2 leading-relaxed">
+              Precision agronomy requires continuous environmental verification. Our multi-stage pipeline synthesizes physical field chemistry with verified botanical biology.
+            </p>
+</div>
+<!-- 3 Distinct Stages with Restrained Glassmorphic Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- 01 OBSERVE -->
+<div class="glass-panel rounded-xl flex flex-col overflow-hidden hover:border-outline-variant/60 transition-colors">
+<div class="p-space-md flex items-center justify-between border-b border-outline-variant/30 bg-surface-container-high/40">
+<span class="text-[12px] text-primary font-bold tracking-wider">01 — OBSERVE</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-surface-container text-outline">Telemetry</span>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm flex-1">
+<h3 class="text-lg font-bold text-on-surface">Continuous In-Situ &amp; Remote Sensing</h3>
+<p class="text-[14px] text-on-surface-variant leading-relaxed">
+                  High-frequency capacitance probes quantify electrical conductivity and moisture across 3 soil horizons. Sentinel-2 spectral radiometry synchronizes at 10m spatial resolution.
+                </p>
+<!-- Soil Horizon Mini-Visualizer -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 flex flex-col gap-2 mt-auto">
+<div class="flex justify-between text-[11px] text-outline font-medium">
+<span class="">Horizon Depth</span>
+<span class="">Moisture %</span>
+</div>
+<div class="space-y-1.5 text-[12px]">
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-high/80">
+<span class="text-on-surface">0–15 cm (Humus Layer)</span>
+<span class="text-primary font-bold">68.4%</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-high/60">
+<span class="text-on-surface-variant">15–30 cm (Rhizosphere)</span>
+<span class="text-primary font-semibold">64.1%</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-surface-container-high/40">
+<span class="text-outline">30–60 cm (Subsoil Loam)</span>
+<span class="text-tertiary">59.8%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 02 UNDERSTAND -->
+<div class="glass-panel rounded-xl flex flex-col overflow-hidden hover:border-outline-variant/60 transition-colors">
+<div class="p-space-md flex items-center justify-between border-b border-outline-variant/30 bg-surface-container-high/40">
+<span class="text-[12px] text-tertiary font-bold tracking-wider">02 — UNDERSTAND</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-surface-container text-outline">Inference</span>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm flex-1">
+<h3 class="text-lg font-bold text-on-surface">Non-Linear Biological Modeling</h3>
+<p class="text-[14px] text-on-surface-variant leading-relaxed">
+                  Multi-class agronomic ensembles calibrated across 2,200+ validated field trials. Models account for soil mineral kinetics, nitrogen mobility, and crop phenological curves.
+                </p>
+<!-- Feature Importance Bar Breakdown -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 flex flex-col gap-2 mt-auto">
+<div class="flex justify-between text-[11px] text-outline font-medium">
+<span class="">Feature Sensitivity</span>
+<span class="">SHAP Score</span>
+</div>
+<div class="space-y-2 text-[12px]">
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-on-surface font-medium">Rainfall Volumetrics</span>
+<span class="text-primary font-bold">0.342</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 82%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-on-surface font-medium">Soil Nitrogen Reserve</span>
+<span class="text-tertiary font-bold">0.265</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-tertiary" style="width: 65%;"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="text-on-surface font-medium">Canopy Temp &amp; RH</span>
+<span class="text-secondary font-bold">0.218</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 52%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 03 DECIDE -->
+<div class="glass-panel rounded-xl flex flex-col overflow-hidden hover:border-outline-variant/60 transition-colors">
+<div class="p-space-md flex items-center justify-between border-b border-outline-variant/30 bg-surface-container-high/40">
+<span class="text-[12px] text-secondary font-bold tracking-wider">03 — DECIDE</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-surface-container text-outline">Actionable</span>
+</div>
+<div class="p-space-md flex flex-col gap-space-sm flex-1">
+<h3 class="text-lg font-bold text-on-surface">Calibrated Field Prescriptions</h3>
+<p class="text-[14px] text-on-surface-variant leading-relaxed">
+                  Generate actionable planting prescriptions, precision nitrogen distribution plans, and moisture stress mitigations compatible with modern ISOBUS farm machinery.
+                </p>
+<!-- Prescription Outcome Card -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest/80 border border-outline-variant/30 flex flex-col gap-2 mt-auto">
+<div class="flex items-center justify-between text-[11px] text-outline font-medium">
+<span class="">Prescription Target</span>
+<span class="text-primary font-bold">92% Match</span>
+</div>
+<div class="p-2 rounded bg-surface-container-high flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[16px] font-bold text-on-surface">Rice</span>
+<span class="text-[11px] text-outline italic">Oryza sativa</span>
+</div>
+<span class="material-symbols-outlined text-primary text-[22px]">verified</span>
+</div>
+<div class="text-[11px] text-on-surface-variant flex items-center gap-1.5 pt-1 font-medium">
+<span class="material-symbols-outlined text-[13px] text-tertiary">check_circle</span>
+<span class="">Optimized for current monsoon profile</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ACT 4: CROP RECOMMENDATION ENGINE & INTERACTIVE WORKSPACE (GLASSMORPHIC RESULT PANEL) -->
+<section class="w-full bg-surface-container-low py-space-xl border-t border-outline-variant/30" id="recommendation-engine">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<!-- Section Title -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-xl gap-space-sm">
+<div>
+<span class="text-[11px] font-bold text-primary uppercase tracking-wider">Inference Workspace</span>
+<h2 class="text-2xl md:text-3xl font-bold text-on-surface mt-1">Crop Recommendation Engine</h2>
+<p class="text-[14px] text-on-surface-variant max-w-xl mt-1 leading-relaxed">
+                Adjust field telemetry parameters to simulate multi-class biological suitability and inspect crop physiological affinity in real-time.
+              </p>
+</div>
+<div class="text-right">
+
+</div>
+</div>
+<!-- Two-Column Interactive Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left: Field Analysis Parameter Inputs -->
+<div class="lg:col-span-6 bg-surface-container rounded-xl border border-outline-variant/30 p-space-md md:p-space-lg flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/20">
+<span class="text-[14px] text-on-surface font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">tune</span>
+                  Field Analysis Parameters
+                </span>
+<button class="text-[11px] text-outline hover:text-on-surface transition-colors flex items-center gap-1 font-semibold" onclick="resetSliders()">
+<span class="material-symbols-outlined text-[14px]">restart_alt</span> Reset
+                </button>
+</div>
+<!-- Parameter Sliders -->
+<div class="flex flex-col gap-space-sm">
+<!-- Nitrogen -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-[12px] font-medium">
+<span class="text-on-surface-variant">Nitrogen (N) Content</span>
+<span class="font-bold text-primary" id="n-val">90 mg/kg</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" id="n-slider" max="140" min="0" oninput="updateCropModel()" type="range" value="90">
+<div class="flex justify-between text-[10px] text-outline font-medium">
+<span class="">0 mg/kg (Deficient)</span>
+<span class="">140 mg/kg (Abundant)</span>
+</div>
+</div>
+<!-- Phosphorus -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-[12px] font-medium">
+<span class="text-on-surface-variant">Phosphorus (P) Content</span>
+<span class="font-bold text-tertiary" id="p-val">42 mg/kg</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-tertiary" id="p-slider" max="145" min="5" oninput="updateCropModel()" type="range" value="42">
+<div class="flex justify-between text-[10px] text-outline font-medium">
+<span class="">5 mg/kg</span>
+<span class="">145 mg/kg</span>
+</div>
+</div>
+<!-- Potassium -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-[12px] font-medium">
+<span class="text-on-surface-variant">Potassium (K) Content</span>
+<span class="font-bold text-secondary" id="k-val">45 mg/kg</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-secondary" id="k-slider" max="205" min="5" oninput="updateCropModel()" type="range" value="45">
+<div class="flex justify-between text-[10px] text-outline font-medium">
+<span class="">5 mg/kg</span>
+<span class="">205 mg/kg</span>
+</div>
+</div>
+<!-- Ambient Temperature -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-[12px] font-medium">
+<span class="text-on-surface-variant">Ambient Canopy Temp</span>
+<span class="font-bold text-on-surface" id="temp-val">27 °C</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" id="temp-slider" max="45" min="10" oninput="updateCropModel()" type="range" value="27">
+<div class="flex justify-between text-[10px] text-outline font-medium">
+<span class="">10°C (Cold)</span>
+<span class="">45°C (Extreme)</span>
+</div>
+</div>
+<!-- Relative Humidity -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-[12px] font-medium">
+<span class="text-on-surface-variant">Relative Humidity</span>
+<span class="font-bold text-on-surface" id="hum-val">78 %</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" id="hum-slider" max="100" min="15" oninput="updateCropModel()" type="range" value="78">
+<div class="flex justify-between text-[10px] text-outline font-medium">
+<span class="">15% (Arid)</span>
+<span class="">100% (Saturated)</span>
+</div>
+</div>
+<!-- Soil Reaction (pH) -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-[12px] font-medium">
+<span class="text-on-surface-variant">Soil Reaction (pH Level)</span>
+<span class="font-bold text-tertiary" id="ph-val">6.4 pH</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-tertiary" id="ph-slider" max="9.5" min="4" oninput="updateCropModel()" step="0.1" type="range" value="6.4">
+<div class="flex justify-between text-[10px] text-outline font-medium">
+<span class="">4.0 (Strong Acid)</span>
+<span class="">7.0 Neutral</span>
+<span class="">9.5 (Alkaline)</span>
+</div>
+</div>
+<!-- Cumulative Rainfall -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between text-[12px] font-medium">
+<span class="text-on-surface-variant">Seasonal Cumulative Rainfall</span>
+<span class="font-bold text-primary" id="rain-val">210 mm</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" id="rain-slider" max="300" min="20" oninput="updateCropModel()" type="range" value="210">
+<div class="flex justify-between text-[10px] text-outline font-medium">
+<span class="">20 mm (Drought)</span>
+<span class="">300 mm (Monsoon)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Real-time Recommendation Result Card (Refined Glassmorphic Panel) -->
+<div class="lg:col-span-6 flex flex-col gap-space-md">
+<div class="glass-panel rounded-xl p-space-md md:p-space-lg flex flex-col gap-space-md flex-1">
+<div class="flex items-center justify-between pb-space-xs border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="text-[11px] font-bold uppercase tracking-wider text-outline">Verified Recommendation Result</span>
+</div>
+<span class="text-[11px] font-mono text-tertiary" id="model-latency">Inference: 48ms</span>
+</div>
+<!-- Primary Crop Card -->
+<div class="p-space-md rounded-lg bg-surface-container-high/80 border border-outline-variant/30 flex items-start justify-between">
+<div>
+<div class="text-outline text-[11px] font-bold uppercase tracking-wider">Top Agronomic Match</div>
+<h3 class="text-3xl font-bold text-on-surface mt-1" id="crop-name">Rice</h3>
+<span class="text-[13px] text-tertiary font-medium italic" id="crop-latin">Oryza sativa</span>
+</div>
+<!-- Confidence Score Gauge -->
+<div class="flex flex-col items-center">
+<div class="relative w-16 h-16 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+<path class="text-surface-container-highest" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3.5"></path>
+<path class="text-primary transition-all duration-500" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" id="confidence-circle" stroke="currentColor" stroke-dasharray="92, 100" stroke-linecap="round" stroke-width="3.5"></path>
+</svg>
+<span class="absolute font-bold text-base text-on-surface" id="confidence-num">92%</span>
+</div>
+<span class="text-[10px] text-outline mt-1 uppercase font-semibold">Confidence</span>
+</div>
+</div>
+<!-- Detailed Suitability Metrics -->
+<div class="grid grid-cols-3 gap-space-xs">
+<div class="p-3 rounded bg-surface-container-lowest/80 border border-outline-variant/20 flex flex-col">
+<span class="text-[11px] text-outline font-medium">Soil Compatibility</span>
+<span class="text-xl font-bold text-on-surface mt-1" id="soil-compat">97%</span>
+<div class="w-full h-1 bg-surface-container-highest rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-primary" id="soil-compat-bar" style="width: 97%;"></div>
+</div>
+</div>
+<div class="p-3 rounded bg-surface-container-lowest/80 border border-outline-variant/20 flex flex-col">
+<span class="text-[11px] text-outline font-medium">Microclimate Fit</span>
+<span class="text-xl font-bold text-on-surface mt-1" id="climate-fit">94%</span>
+<div class="w-full h-1 bg-surface-container-highest rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-tertiary" id="climate-fit-bar" style="width: 94%;"></div>
+</div>
+</div>
+<div class="p-3 rounded bg-surface-container-lowest/80 border border-outline-variant/20 flex flex-col">
+<span class="text-[11px] text-outline font-medium">Nutrient Envelope</span>
+<span class="text-xl font-bold text-on-surface mt-1" id="nutrient-env">98%</span>
+<div class="w-full h-1 bg-surface-container-highest rounded-full mt-2 overflow-hidden">
+<div class="h-full bg-secondary" id="nutrient-env-bar" style="width: 98%;"></div>
+</div>
+</div>
+</div>
+<!-- Agronomic Rationale Box -->
+<div class="p-space-sm rounded-lg bg-surface-container-lowest/80 border border-outline-variant/20 flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[17px]">psychology</span>
+<span class="text-[11px] font-bold text-outline uppercase tracking-wider">Agronomic Model Rationale</span>
+</div>
+<p class="text-[13px] text-on-surface-variant leading-relaxed font-normal" id="crop-rationale">
+                    Current sub-humid soil moisture, neutral pH, and sustained 210mm seasonal precipitation provide optimal physiological conditions for Oryza sativa with minimal nitrogen leaching risk.
+                  </p>
+</div>
+<!-- Secondary Alternative Suggestions -->
+<div class="flex items-center justify-between pt-1 border-t border-outline-variant/20 text-[13px]">
+<span class="text-outline font-medium text-[12px]">Secondary Viable Options:</span>
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-semibold text-on-surface">Jute (79%)</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-[11px] font-semibold text-on-surface">Cotton (64%)</span>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center gap-space-sm pt-space-xs mt-auto">
+<button class="w-full sm:w-auto flex-1 inline-flex items-center justify-center h-10 px-4 rounded-lg bg-primary text-on-primary font-semibold text-[13px] hover:bg-primary-container transition-colors" onclick="downloadPrescription()">
+<span class="material-symbols-outlined text-[17px] mr-2">description</span>
+                    Download Field Prescription (PDF)
+                  </button>
+<button class="w-full sm:w-auto inline-flex items-center justify-center h-10 px-4 rounded-lg bg-surface-container-high border border-outline-variant/40 text-on-surface hover:bg-surface-bright transition-colors font-semibold text-[13px]" onclick="alert('Preset saved to Parcel #402 calibration mesh.')">
+                    Save Calibration
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ACT 5: ASYMMETRIC PLATFORM MATRIX (GROUNDED INTELLIGENCE WITH RESTRAINED GLASSMORPHISM) -->
+<section class="w-full bg-surface py-space-xl" id="model-insights">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<!-- Section Header -->
+<div class="max-w-2xl mb-space-xl">
+<span class="text-[11px] font-bold text-primary uppercase tracking-wider">Agronomic Subsystems</span>
+<h2 class="text-2xl md:text-3xl font-bold text-on-surface mt-1">Grounded Intelligence Architecture</h2>
+<p class="text-[14px] text-on-surface-variant mt-2 leading-relaxed">
+              Precision telemetry calibrated against actual pedology, boundary micrometeorology, and explainable plant biology.
+            </p>
+</div>
+<!-- Asymmetric Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- 1. Soil Subsurface Intelligence (Col 7) -->
+<div class="md:col-span-7 glass-panel rounded-xl p-space-md md:p-space-lg flex flex-col justify-between hover:border-outline-variant/60 transition-colors" id="soil-data">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[19px]">layers</span>
+<span class="text-[11px] font-bold uppercase tracking-wider text-outline">Pedological Profile</span>
+</div>
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-surface text-primary border border-outline-variant/30">ISO 19156 Active</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Soil Subsurface Intelligence</h3>
+<p class="text-[14px] text-on-surface-variant mt-2 max-w-lg leading-relaxed">
+                  Stratified real-time monitoring of nitrate concentration, cation exchange capacity (CEC), and hydraulic conductivity down to 60cm root-zone depth.
+                </p>
+</div>
+<!-- Soil Horizons Graphic -->
+<div class="grid grid-cols-3 gap-space-sm my-space-md">
+<div class="p-space-sm rounded-lg bg-surface-container-low border border-outline-variant/20">
+<div class="text-[11px] font-medium text-tertiary">0–15 cm</div>
+<div class="text-xl font-bold text-on-surface mt-1">2.4%</div>
+<div class="text-[11px] text-outline font-medium">Organic Carbon</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low border border-outline-variant/20">
+<div class="text-[11px] font-medium text-primary">15–30 cm</div>
+<div class="text-xl font-bold text-on-surface mt-1">1.24 g/cm³</div>
+<div class="text-[11px] text-outline font-medium">Bulk Density</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low border border-outline-variant/20">
+<div class="text-[11px] font-medium text-secondary">30–60 cm</div>
+<div class="text-xl font-bold text-on-surface mt-1">18.2 meq</div>
+<div class="text-[11px] text-outline font-medium">CEC Capacity</div>
+</div>
+</div>
+<div class="flex items-center justify-between text-[12px] text-outline pt-2 border-t border-outline-variant/20 font-medium">
+<span class="">Soil Taxonomy: Typic Hapludalf (Fine Loamy)</span>
+<span class="text-primary font-semibold">Probe ID #SP-9021</span>
+</div>
+</div>
+<!-- 2. Agro-Meteorology Card (Col 5) -->
+<div class="md:col-span-5 glass-panel rounded-xl p-space-md md:p-space-lg flex flex-col justify-between hover:border-outline-variant/60 transition-colors">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[19px]">air</span>
+<span class="text-[11px] font-bold uppercase tracking-wider text-outline">Micrometeorology</span>
+</div>
+<span class="text-[11px] text-secondary font-semibold">1km Grid Sync</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Evapotranspiration</h3>
+<p class="text-[14px] text-on-surface-variant mt-1 leading-relaxed">
+                  Dual FAO-56 Penman-Monteith boundary calculation for precision water replenishment scheduling.
+                </p>
+</div>
+<!-- Micro Met Metrics -->
+<div class="space-y-2 my-space-sm">
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low text-[13px]">
+<span class="text-on-surface-variant font-medium">Vapor Pressure Deficit (VPD)</span>
+<span class="text-primary font-bold">0.087 kPa</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low text-[13px]">
+<span class="text-on-surface-variant font-medium">Boundary Wind Velocity</span>
+<span class="text-on-surface font-semibold">12 km/h ENE</span>
+</div>
+<div class="flex items-center justify-between p-2 rounded bg-surface-container-low text-[13px]">
+<span class="text-on-surface-variant font-medium">Solar Irradiance Flux</span>
+<span class="text-secondary font-bold">482 W/m²</span>
+</div>
+</div>
+<div class="text-[11px] text-outline pt-2 border-t border-outline-variant/20 font-medium">
+                No transpiration stress detected · Stomatal resistance normal
+              </div>
+</div>
+<!-- 3. Wide Card: Crop Cultivar Taxonomy (Col 8) -->
+<div class="md:col-span-8 glass-panel rounded-xl p-space-md md:p-space-lg flex flex-col justify-between hover:border-outline-variant/60 transition-colors">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[19px]">psychiatry</span>
+<span class="text-[11px] font-bold uppercase tracking-wider text-outline">Crop Taxonomies</span>
+</div>
+<span class="text-[11px] text-on-surface-variant font-medium">22 Validated Species</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Phenological Adaptability Matrix</h3>
+<p class="text-[14px] text-on-surface-variant mt-1 leading-relaxed">
+                  Real-time matching across cereal, legume, and fiber crops mapped against regional agro-climatic boundaries.
+                </p>
+</div>
+<!-- Cultivar Pills -->
+<div class="flex flex-wrap gap-2 my-space-md">
+<span class="px-3 py-1 rounded bg-primary/20 border border-primary/40 text-primary text-[12px] font-bold">Rice (92%)</span>
+<span class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-on-surface text-[12px] font-medium">Maize (84%)</span>
+<span class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-on-surface text-[12px] font-medium">Chickpea (78%)</span>
+<span class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-on-surface text-[12px] font-medium">Kidneybeans (71%)</span>
+<span class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-on-surface text-[12px] font-medium">Pigeonpeas (68%)</span>
+<span class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-on-surface text-[12px] font-medium">Mothbeans (62%)</span>
+<span class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-on-surface text-[12px] font-medium">Mungbean (60%)</span>
+<span class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-on-surface text-[12px] font-medium">Blackgram (59%)</span>
+<span class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-on-surface text-[12px] font-medium">Lentil (55%)</span>
+<span class="px-3 py-1 rounded bg-surface-container-high border border-outline-variant/30 text-on-surface text-[12px] font-medium">Pomegranate (48%)</span>
+</div>
+<div class="flex items-center justify-between text-[12px] text-outline pt-2 border-t border-outline-variant/20 font-medium">
+<span class="">Soil-Climate Intersection: Sub-Humid Alluvial</span>
+<a class="text-primary hover:underline text-[12px] font-semibold" href="#recommendation-engine">Inspect Full Matrix →</a>
+</div>
+</div>
+<!-- 4. Model Explainability & SHAP Audits (Col 4) -->
+<div class="md:col-span-4 glass-panel rounded-xl p-space-md md:p-space-lg flex flex-col justify-between hover:border-outline-variant/60 transition-colors">
+<div>
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[19px]">policy</span>
+<span class="text-[11px] font-bold uppercase tracking-wider text-outline">Audit &amp; Safety</span>
+</div>
+<span class="text-[11px] text-tertiary font-bold">F1 99.5%</span>
+</div>
+<h3 class="text-xl font-bold text-on-surface">Explainable Decisions</h3>
+<p class="text-[14px] text-on-surface-variant mt-1 leading-relaxed">
+                  Zero black-box recommendations. Every prescription is bounded by verifiable physiological plant constraints.
+                </p>
+</div>
+<div class="p-space-sm rounded bg-surface-container-low border border-outline-variant/20 my-space-sm flex flex-col gap-1.5 text-[11px]">
+<div class="text-outline uppercase tracking-wider font-semibold">Top Decision Vectors:</div>
+<div class="text-on-surface font-medium">1. Cumulative Rain &gt; 180mm</div>
+<div class="text-on-surface font-medium">2. Loam CEC Reserve &gt; 15 meq</div>
+<div class="text-on-surface font-medium">3. pH Bracket 6.0 – 7.0</div>
+<div class="text-tertiary font-medium">4. Micro-leach Potential &lt; 4%</div>
+</div>
+<div class="text-[11px] text-outline pt-2 border-t border-outline-variant/20 font-medium">
+                Validated against USDA-ARS experimental datasets
+              </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ACT 6: EMPIRICAL BENCHMARKS & LIVE FIELD WEATHER FEED (GLASSMORPHIC TELEMETRY CONTAINER) -->
+<section class="w-full bg-surface-container-low py-space-xl border-y border-outline-variant/30" id="weather-feed">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin">
+<!-- Minimalist Stats Header -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter pb-space-xl border-b border-outline-variant/20">
+<div class="flex flex-col">
+<span class="text-3xl md:text-4xl font-bold text-primary">2,200+</span>
+<span class="text-[14px] font-semibold text-on-surface mt-1">Validated Field Trials</span>
+<span class="text-[12px] text-outline">Multi-continental research data</span>
+</div>
+<div class="flex flex-col">
+<span class="text-3xl md:text-4xl font-bold text-tertiary">22</span>
+<span class="text-[14px] font-semibold text-on-surface mt-1">Crop Taxonomies</span>
+<span class="text-[12px] text-outline">Calibrated biological envelopes</span>
+</div>
+<div class="flex flex-col">
+<span class="text-3xl md:text-4xl font-bold text-secondary">7</span>
+<span class="text-[14px] font-semibold text-on-surface mt-1">Synchronous Features</span>
+<span class="text-[12px] text-outline">Soil NPK, climate &amp; hydrologic</span>
+</div>
+<div class="flex flex-col">
+<span class="text-3xl md:text-4xl font-bold text-on-surface">99.5%</span>
+<span class="text-[14px] font-semibold text-on-surface mt-1">Multi-Class F1 Score</span>
+<span class="text-[12px] text-outline">Rigorous out-of-fold validation</span>
+</div>
+</div>
+<!-- Live Field Station Telemetry Card (Glassmorphic Container) -->
+<div class="mt-space-xl glass-panel rounded-xl p-space-md md:p-space-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-space-sm border-b border-outline-variant/20 gap-2">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-primary animate-pulse"></span>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-[14px] text-on-surface font-bold">Live Field Telemetry Feed</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-mono bg-surface-container-high text-tertiary border border-outline-variant/30">STATION #04 · VALLEY TERRACES</span>
+</div>
+<span class="text-[12px] text-outline font-medium">Ingested 3 minutes ago · Hardware Firmware v3.8.12</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded bg-surface-container-highest/70 border border-outline-variant/30 text-[11px] font-semibold text-on-surface">
+                  Battery: 98% (Solar Trickle)
+                </span>
+</div>
+</div>
+<!-- Metric Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-space-sm pt-space-md text-left">
+<div class="flex flex-col p-2.5 rounded bg-surface-container-low/90 border border-outline-variant/20">
+<span class="text-[11px] text-outline font-medium">Air Temp</span>
+<span class="text-base font-bold text-on-surface mt-0.5">27.0°C</span>
+<span class="text-[10px] text-tertiary font-medium">Trend: +0.2°/hr</span>
+</div>
+<div class="flex flex-col p-2.5 rounded bg-surface-container-low/90 border border-outline-variant/20">
+<span class="text-[11px] text-outline font-medium">Rel. Humidity</span>
+<span class="text-base font-bold text-on-surface mt-0.5">78.0%</span>
+<span class="text-[10px] text-primary font-medium">Optimal Transp.</span>
+</div>
+<div class="flex flex-col p-2.5 rounded bg-surface-container-low/90 border border-outline-variant/20">
+<span class="text-[11px] text-outline font-medium">Soil Nitrogen</span>
+<span class="text-base font-bold text-primary mt-0.5">90 mg/kg</span>
+<span class="text-[10px] text-outline font-medium">Topsoil Layer</span>
+</div>
+<div class="flex flex-col p-2.5 rounded bg-surface-container-low/90 border border-outline-variant/20">
+<span class="text-[11px] text-outline font-medium">Soil Phosphorus</span>
+<span class="text-base font-bold text-tertiary mt-0.5">42 mg/kg</span>
+<span class="text-[10px] text-outline font-medium">Stable Reserve</span>
+</div>
+<div class="flex flex-col p-2.5 rounded bg-surface-container-low/90 border border-outline-variant/20">
+<span class="text-[11px] text-outline font-medium">Potassium (K)</span>
+<span class="text-base font-bold text-secondary mt-0.5">45 mg/kg</span>
+<span class="text-[10px] text-outline font-medium">Sufficient</span>
+</div>
+<div class="flex flex-col p-2.5 rounded bg-surface-container-low/90 border border-outline-variant/20">
+<span class="text-[11px] text-outline font-medium">Soil pH</span>
+<span class="text-base font-bold text-on-surface mt-0.5">6.40</span>
+<span class="text-[10px] text-tertiary font-medium">Neutral Loam</span>
+</div>
+<div class="flex flex-col p-2.5 rounded bg-surface-container-low/90 border border-outline-variant/20">
+<span class="text-[11px] text-outline font-medium">Rainfall Accum.</span>
+<span class="text-base font-bold text-primary mt-0.5">210 mm</span>
+<span class="text-[10px] text-primary font-medium">Saturated Profile</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ACT 7: FINAL CALL TO ACTION (UNOBSTRUCTED PHOTO BACKDROP) -->
+<section class="relative w-full overflow-hidden bg-surface py-28 text-on-surface" id="about">
+<!-- Visual background image container -->
+<div class="absolute inset-0 z-0">
+<img alt="Peaceful terraced rice paddies at dawn with soft mist" class="w-full h-full object-cover opacity-20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqKKdFEjIEPZnZ4xihfRZBJy9jqdhGyRE9cRHHtd6zcJ68zTAoFftWCjVJRf3Jz0OpCmB6qSOfBtbO9gNZYHLQTWlZSOkVnYdHv_JIyudowhFMp_WGi-eGMQGJ0tpNkmeWUlQKcnYtgvZfqZwFJEqvSrTzixXlf3NiPOS3D9nk_TJwrcZy1fUx80a4Nxdcx4sAnadKjEgYCQBXRZPLX5afPYFgIHCjpLaxDal4g8EpAzf5wDztLoOR">
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/90 to-surface/70"></div>
+</div>
+<!-- Editorial Call to Action Content -->
+<div class="relative z-10 max-w-4xl mx-auto px-margin-mobile md:px-margin text-center flex flex-col items-center gap-space-md">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/40">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider">Agronomic Sovereignty</span>
+</div>
+<h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-on-surface max-w-2xl leading-tight">
+            Better data. Better decisions. <span class="font-normal text-tertiary">Healthier fields.</span>
+</h2>
+<p class="text-[16px] text-on-surface-variant max-w-xl leading-relaxed">
+            Equip your acreage with calibrated biological telemetry. Build resilience against climate volatility through verified agronomic precision.
+          </p>
+<div class="flex flex-wrap items-center justify-center gap-space-sm pt-space-xs">
+<a class="inline-flex items-center justify-center h-11 px-7 rounded-lg bg-primary text-on-primary font-semibold text-[13px] hover:bg-primary-container transition-all shadow-lg" href="#recommendation-engine">
+<span class="material-symbols-outlined text-[18px] mr-2">analytics</span>
+              Analyze your field
+            </a>
+<a class="inline-flex items-center justify-center h-11 px-7 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface hover:bg-surface-container-high transition-colors font-medium text-[13px]" href="#how-it-works">
+              Explore the platform
+            </a>
+</div>
+<div class="pt-space-sm flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-outline text-[12px] font-medium">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-tertiary">check</span>
+<span class="">No proprietary hardware lock-in</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-tertiary">check</span>
+<span class="">Offline field sync ready</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-tertiary">check</span>
+<span class="">Exportable ISOBUS prescriptions</span>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- STRUCTURED AGRITECH FOOTER -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-lg pb-space-lg border-b border-outline-variant/20">
+<div class="md:col-span-2 flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="text-lg font-bold text-on-surface">AgriSense</span>
+<span class="px-2 py-0.5 rounded text-[10px] font-semibold tracking-wider uppercase bg-surface-container-high border border-outline-variant/40 text-tertiary">Telemetry v4.2</span>
+</div>
+<p class="text-[13px] text-on-surface-variant max-w-md leading-relaxed">
+            Precision soil dynamics, evapotranspiration indices, and phenological crop intelligence engineered for sustainable yield sovereignty.
+          </p>
+<div class="flex items-center gap-space-md pt-space-xs text-outline text-[11px] font-medium">
+<span class="">ISO 19156 (O&amp;M) Compliant</span>
+<span class="">•</span>
+<span class="">OGC SensorThings API</span>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<span class="text-[12px] font-bold text-outline uppercase tracking-wider mb-1">Agronomic Standards</span>
+<span class="text-[13px] text-on-surface-variant">USDA Soil Taxonomy Tier IV</span>
+<span class="text-[13px] text-on-surface-variant">Sentinel-2 NDVI &amp; NDRE Radiometry</span>
+<span class="text-[13px] text-on-surface-variant">FAO-56 Dual Crop Evapotranspiration</span>
+<span class="text-[13px] text-on-surface-variant">ISOBUS Class 3 Protocol</span>
+</div>
+<div class="flex flex-col gap-1.5">
+<span class="text-[12px] font-bold text-outline uppercase tracking-wider mb-1">Platform Specs</span>
+<div class="flex items-center justify-between text-[13px]">
+<span class="text-on-surface-variant">Telemetry Ingestion:</span>
+<span class="text-primary font-mono text-[11px] font-bold">120ms</span>
+</div>
+<div class="flex items-center justify-between text-[13px]">
+<span class="text-on-surface-variant">Canopy Coverage:</span>
+<span class="text-on-surface font-mono text-[11px]">10m² Res</span>
+</div>
+<div class="flex items-center justify-between text-[13px]">
+<span class="text-on-surface-variant">Model Version:</span>
+<span class="text-on-surface font-mono text-[11px]">TerraNet-9B</span>
+</div>
+<div class="flex items-center justify-between text-[13px]">
+<span class="text-on-surface-variant">Core Mesh:</span>
+<span class="text-tertiary font-mono text-[11px]">Active</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row items-center justify-between pt-space-md gap-space-sm">
+<div class="flex items-center gap-space-xs text-on-surface-variant text-[12px]">
+<span class="">© 2025 AgriSense BioSystems Inc. All rights reserved.</span>
+</div>
+<div class="flex items-center gap-space-md text-outline text-[12px]">
+<a class="hover:text-on-surface transition-colors" href="#">Sensor Calibration Terms</a>
+<a class="hover:text-on-surface transition-colors" href="#">Agronomic Privacy</a>
+<a class="hover:text-on-surface transition-colors" href="#">Telemetry Trust Center</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- CLIENT-SIDE INTERACTION SCRIPT -->
+<script>
+    // Hero 6-Stage Narrative Transition Logic
+    const sceneData = {
+      1: {
+        badge: "Stage 1: Soil",
+        metric: "Subsurface Loam Layer · Organic Carbon: 2.4%",
+        status: "Capacitance Calibrated"
+      },
+      2: {
+        badge: "Stage 2: Seed",
+        metric: "Seed Germination Zone · Moisture: 68% · pH: 6.4",
+        status: "Optimal Imbibition"
+      },
+      3: {
+        badge: "Stage 3: Growth",
+        metric: "Vegetative Vigor · N: 90 mg/kg · P: 42 mg/kg · K: 45 mg/kg",
+        status: "Vigorous Rhizosphere"
+      },
+      4: {
+        badge: "Stage 4: Field",
+        metric: "Parcel #402 · 14.825° N · Elevation 420m",
+        status: "Terraced Catchment"
+      },
+      5: {
+        badge: "Stage 5: Intelligence",
+        metric: "Hydrologic & Soil Kinetic Convergence Synthesized",
+        status: "TerraNet-9B Model Fit"
+      },
+      6: {
+        badge: "Stage 6: Decision",
+        metric: "Prescription Verified: Rice (Oryza sativa) @ 92%",
+        status: "Field Ready"
+      }
+    };
+
+    function setHeroScene(stageNum) {
+      for (let i = 1; i <= 6; i++) {
+        const img = document.getElementById(`scene-img-${i}`);
+        if (img) {
+          img.classList.toggle('opacity-100', i === stageNum);
+          img.classList.toggle('opacity-0', i !== stageNum);
+        }
+      }
+
+      document.querySelectorAll('.scene-btn').forEach(btn => {
+        const isCurrent = parseInt(btn.getAttribute('data-scene')) === stageNum;
+        if (isCurrent) {
+          btn.classList.add('bg-surface-container-high', 'text-primary');
+          btn.classList.remove('text-on-surface-variant');
+        } else {
+          btn.classList.remove('bg-surface-container-high', 'text-primary');
+          btn.classList.add('text-on-surface-variant');
+        }
+      });
+
+      const d = sceneData[stageNum];
+      if (d) {
+        document.getElementById('scene-phase-badge').innerText = d.badge;
+        document.getElementById('scene-metric-label').innerText = d.metric;
+        document.getElementById('scene-status').innerText = d.status;
+      }
+    }
+
+    // Interactive Crop Recommendation Simulation Logic
+    function updateCropModel() {
+      const n = parseFloat(document.getElementById('n-slider').value);
+      const p = parseFloat(document.getElementById('p-slider').value);
+      const k = parseFloat(document.getElementById('k-slider').value);
+      const temp = parseFloat(document.getElementById('temp-slider').value);
+      const hum = parseFloat(document.getElementById('hum-slider').value);
+      const ph = parseFloat(document.getElementById('ph-slider').value);
+      const rain = parseFloat(document.getElementById('rain-slider').value);
+
+      document.getElementById('n-val').innerText = `${n} mg/kg`;
+      document.getElementById('p-val').innerText = `${p} mg/kg`;
+      document.getElementById('k-val').innerText = `${k} mg/kg`;
+      document.getElementById('temp-val').innerText = `${temp} °C`;
+      document.getElementById('hum-val').innerText = `${hum} %`;
+      document.getElementById('ph-val').innerText = `${ph.toFixed(1)} pH`;
+      document.getElementById('rain-val').innerText = `${rain} mm`;
+
+      let recommendedCrop = "Rice";
+      let latinName = "Oryza sativa";
+      let confidence = 92;
+      let soilCompat = 97;
+      let climateFit = 94;
+      let nutrientEnv = 98;
+      let rationale = "Current sub-humid soil moisture, neutral pH, and sustained 210mm seasonal precipitation provide optimal physiological conditions for Oryza sativa with minimal nitrogen leaching risk.";
+
+      if (rain < 100 && hum < 50) {
+        recommendedCrop = "Chickpea";
+        latinName = "Cicer arietinum";
+        confidence = 89;
+        soilCompat = 92;
+        climateFit = 90;
+        nutrientEnv = 88;
+        rationale = "Arid moisture regime and lower humidity favor drought-hardy legumes. Chickpea root symbiosis excels in these moisture-constrained loams.";
+      } else if (n > 100 && p > 60) {
+        recommendedCrop = "Maize";
+        latinName = "Zea mays";
+        confidence = 94;
+        soilCompat = 95;
+        climateFit = 92;
+        nutrientEnv = 96;
+        rationale = "High soil nitrogen and phosphorus reserves provide exceptional nutritive capacity for fast vegetative growth of Zea mays.";
+      } else if (temp > 32 && hum > 80) {
+        recommendedCrop = "Jute";
+        latinName = "Corchorus olitorius";
+        confidence = 91;
+        soilCompat = 89;
+        climateFit = 96;
+        nutrientEnv = 90;
+        rationale = "Tropical thermal conditions and high saturated vapor pressure index create prime vegetative biomass conditions for fiber maturation.";
+      } else if (ph < 5.8) {
+        recommendedCrop = "Tea";
+        latinName = "Camellia sinensis";
+        confidence = 87;
+        soilCompat = 95;
+        climateFit = 86;
+        nutrientEnv = 85;
+        rationale = "Acidic soil reaction (pH < 5.8) activates micronutrient absorption ideal for Camellia sinensis root zones.";
+      }
+
+      document.getElementById('crop-name').innerText = recommendedCrop;
+      document.getElementById('crop-latin').innerText = latinName;
+      document.getElementById('confidence-num').innerText = `${confidence}%`;
+      document.getElementById('confidence-circle').setAttribute('stroke-dasharray', `${confidence}, 100`);
+
+      document.getElementById('soil-compat').innerText = `${soilCompat}%`;
+      document.getElementById('soil-compat-bar').style.width = `${soilCompat}%`;
+
+      document.getElementById('climate-fit').innerText = `${climateFit}%`;
+      document.getElementById('climate-fit-bar').style.width = `${climateFit}%`;
+
+      document.getElementById('nutrient-env').innerText = `${nutrientEnv}%`;
+      document.getElementById('nutrient-env-bar').style.width = `${nutrientEnv}%`;
+
+      document.getElementById('crop-rationale').innerText = rationale;
+    }
+
+    function resetSliders() {
+      document.getElementById('n-slider').value = 90;
+      document.getElementById('p-slider').value = 42;
+      document.getElementById('k-slider').value = 45;
+      document.getElementById('temp-slider').value = 27;
+      document.getElementById('hum-slider').value = 78;
+      document.getElementById('ph-slider').value = 6.4;
+      document.getElementById('rain-slider').value = 210;
+      updateCropModel();
+    }
+
+    function downloadPrescription() {
+      const crop = document.getElementById('crop-name').innerText;
+      alert(`Prescription for ${crop} (Parcel #402) generated successfully according to ISO 19156 specifications.`);
+    }
+  </script>
+
+
+</body></html>
