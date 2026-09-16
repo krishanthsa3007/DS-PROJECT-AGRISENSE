@@ -56,10 +56,10 @@ const Header: React.FC<HeaderProps> = ({ page, theme, onNavigate, onThemeChange 
           </nav>
 
           <div className="flex items-center gap-3">
-            <div className="flex items-center bg-surface-container-highest rounded-full p-0.5 border border-outline-variant/30" aria-label="Theme selector">
+            <div className="flex items-center #122018 rounded-full p-0.5" aria-label="Theme selector">
               <button 
                 onClick={() => onThemeChange('dark')}
-                className={`w-7 h-7 rounded-full flex items-center justify-center transition-all focus:outline-none ${theme === 'dark' ? 'bg-surface shadow-sm text-primary' : 'text-on-surface-variant hover:text-on-surface'}`}
+                className={`w-7 h-7 rounded-full flex items-center justify-center transition-all focus:outline-none ${theme === 'dark' ? 'bg-[#4ADE80] text-[#0B120D]' : 'text-on-surface-variant hover:text-on-surface'}`}
                 title="Dark Mode"
                 aria-pressed={theme === 'dark'}
               >
@@ -67,7 +67,7 @@ const Header: React.FC<HeaderProps> = ({ page, theme, onNavigate, onThemeChange 
               </button>
               <button 
                 onClick={() => onThemeChange('system')}
-                className={`w-7 h-7 rounded-full flex items-center justify-center transition-all focus:outline-none ${theme === 'system' ? 'bg-surface shadow-sm text-primary' : 'text-on-surface-variant hover:text-on-surface'}`}
+                className={`w-7 h-7 rounded-full flex items-center justify-center transition-all focus:outline-none ${theme === 'system' ? 'bg-[#4ADE80] text-[#0B120D]' : 'text-on-surface-variant hover:text-on-surface'}`}
                 title="System Theme"
                 aria-pressed={theme === 'system'}
               >
@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ page, theme, onNavigate, onThemeChange 
               </button>
               <button 
                 onClick={() => onThemeChange('light')}
-                className={`w-7 h-7 rounded-full flex items-center justify-center transition-all focus:outline-none ${theme === 'light' ? 'bg-surface shadow-sm text-primary' : 'text-on-surface-variant hover:text-on-surface'}`}
+                className={`w-7 h-7 rounded-full flex items-center justify-center transition-all focus:outline-none ${theme === 'light' ? 'bg-[#4ADE80] text-[#0B120D]' : 'text-on-surface-variant hover:text-on-surface'}`}
                 title="Light Mode"
                 aria-pressed={theme === 'light'}
               >

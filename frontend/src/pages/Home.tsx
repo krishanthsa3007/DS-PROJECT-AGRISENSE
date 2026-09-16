@@ -70,7 +70,7 @@ const HomePage: React.FC<HomePageProps> = ({
                 </button>
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center h-11 px-6 rounded-lg bg-surface-container border border-outline-variant/40 text-on-surface hover:bg-surface-container-high transition-colors font-medium text-[13px]"
+                  className="inline-flex items-center justify-center h-11 px-6 rounded-lg bg-[#D8E9DD] dark:bg-[#183024] text-[#1F5130] dark:text-[#CFEFD8] hover:bg-[#DCEDE3] dark:hover:bg-[#204030] transition-colors font-medium text-[13px]"
                   onClick={() => document.getElementById('how-it-works-sec')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Explore AgriSense
