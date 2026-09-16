@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import { Info } from 'lucide-react';
 import { FIELDS } from '../App';
 
 interface InfluenceMapProps {
@@ -36,7 +35,7 @@ const InfluenceMap: React.FC<InfluenceMapProps> = ({ importance }) => {
           const feature = FIELDS.find(f => f.key === name);
           
           return (
-            <article key={name} className="bg-surface-container rounded-lg border border-outline-variant/30 p-4 flex flex-col transition-colors hover:border-outline-variant/50 hover:bg-surface-container-high">
+            <article key={name} className="bg-surface-container rounded-lg p-4 flex flex-col transition-colors hover:bg-surface-container-high">
 
               <h3 className="text-[13px] font-bold text-on-surface mb-1">{formatFeatureLabel(name)}</h3>
               
@@ -51,14 +50,6 @@ const InfluenceMap: React.FC<InfluenceMapProps> = ({ importance }) => {
             </article>
           );
         })}
-      </div>
-
-      <div className="flex items-start gap-3 p-4 rounded-lg bg-surface-container-low border border-outline-variant/30 text-[12px] text-on-surface-variant leading-relaxed">
-        <Info size={16} className="text-outline shrink-0 mt-0.5" />
-        <p>
-          Feature importance reflects how strongly each input contributed to the model's
-          decision process during training. It does not imply direct biological causation.
-        </p>
       </div>
     </div>
   );

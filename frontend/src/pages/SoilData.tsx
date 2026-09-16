@@ -19,10 +19,6 @@ const SoilDataPage: React.FC<SoilDataPageProps> = ({ formState, predictionResult
             Overview of submitted Nitrogen, Phosphorus, Potassium, and Soil pH values
             used in the crop recommendation.
           </p>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-low text-sm text-outline font-medium">
-            <Info size={16} className="text-primary" />
-            Displaying submitted field input values.
-          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

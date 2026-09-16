@@ -167,8 +167,7 @@ const RecommendationPage: React.FC<RecommendationPageProps> = ({
                 disabled={loading}
                 className="w-full py-3.5 rounded-lg bg-primary text-on-primary font-bold text-[14px] hover:bg-primary-container transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                {loading ? <Activity size={18} className="animate-pulse" /> : <BrainCircuit size={18} />}
-                {loading ? 'Processing...' : 'Run Analysis'}
+                Run Analysis
               </button>
             </div>
           </form>

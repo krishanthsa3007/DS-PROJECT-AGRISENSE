@@ -61,7 +61,7 @@ const InsightsPage: React.FC<InsightsPageProps> = ({
 
         {/* Dataset Info */}
         {modelInfo && (
-          <section className="bg-surface-container rounded-xl border border-outline-variant/30 p-8 shadow-lg">
+          <section className="bg-surface-container rounded-xl p-8 shadow-lg">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
               <div>
                 <h2 className="text-xl font-bold text-on-surface">Dataset Overview</h2>
@@ -75,7 +75,7 @@ const InsightsPage: React.FC<InsightsPageProps> = ({
                 { label: 'Training Samples', value: modelInfo.training_samples?.toLocaleString() ?? '—', sub: '80% split' },
                 { label: 'Testing Samples',  value: modelInfo.testing_samples?.toLocaleString()  ?? '—', sub: '20% split' },
               ].map(({ label, value, sub }) => (
-                <div key={label} className="flex flex-col border-l-2 border-outline-variant/50 pl-4">
+                <div key={label} className="flex flex-col pl-4">
                   <span className="text-sm font-semibold text-on-surface-variant">{label}</span>
                   <span className="text-xl font-bold text-on-surface my-1">{value}</span>
                   <span className="text-[11px] text-outline font-medium uppercase tracking-wider">{sub}</span>
@@ -87,13 +87,13 @@ const InsightsPage: React.FC<InsightsPageProps> = ({
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Algorithm Benchmark */}
-          <section className="bg-surface-container rounded-xl border border-outline-variant/30 p-8 shadow-lg">
+          <section className="bg-surface-container rounded-xl p-8 shadow-lg">
             <div className="flex flex-col gap-2 mb-6">
               <h2 className="text-xl font-bold text-on-surface">Algorithm Benchmark Comparison</h2>
               <p className="text-sm text-on-surface-variant">Evaluation of multiple classification models trained on the agricultural dataset.</p>
             </div>
             
-            <div className="flex flex-wrap gap-2 mb-8 bg-surface-container-lowest p-1.5 rounded-lg border border-outline-variant/20 w-fit">
+            <div className="flex flex-wrap gap-2 mb-8 bg-surface-container-lowest p-1.5 rounded-lg w-fit">
               {METRIC_TABS.map(([key, label]) => (
                 <button
                   key={key}
@@ -134,7 +134,7 @@ const InsightsPage: React.FC<InsightsPageProps> = ({
           </section>
 
           {/* Feature Importance */}
-          <section className="bg-surface-container rounded-xl border border-outline-variant/30 p-8 shadow-lg">
+          <section className="bg-surface-container rounded-xl p-8 shadow-lg">
             <div className="flex flex-col gap-2 mb-6">
               <h2 className="text-xl font-bold text-on-surface">Model Influence Map</h2>
               <p className="text-sm text-on-surface-variant">Relative feature weights derived from trained Random Forest decision tree splits.</p>

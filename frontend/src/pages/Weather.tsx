@@ -19,10 +19,6 @@ const WeatherPage: React.FC<WeatherPageProps> = ({ formState, predictionResult }
             Analysis of ambient temperature, relative humidity, and rainfall indices
             submitted for field evaluation.
           </p>
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-low text-sm text-outline font-medium">
-            <Info size={16} className="text-primary" />
-            Displaying submitted environmental values.
-          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
