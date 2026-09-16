@@ -15,9 +15,6 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
         
         {/* Hero */}
         <div className="flex flex-col items-center text-center gap-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/50 w-fit">
-            <span className="text-[11px] font-semibold tracking-wider uppercase text-on-surface-variant">About the Platform</span>
-          </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-on-surface">
             AgriSense <span className="text-primary font-light">AI</span>
           </h1>
@@ -30,10 +27,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
 
         {/* About Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <section className="bg-surface-container rounded-xl border border-outline-variant/30 p-8 shadow-lg flex flex-col gap-4">
-            <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary border border-outline-variant/50">
-              <ShieldCheck size={24} />
-            </div>
+          <section className="bg-surface-container rounded-xl p-8 shadow-lg flex flex-col gap-4">
             <h2 className="text-xl font-bold text-on-surface">Problem Statement</h2>
             <p className="text-sm text-on-surface-variant leading-relaxed">
               Farmers often select crops based on tradition or single-variable observations,
@@ -43,10 +37,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             </p>
           </section>
 
-          <section className="bg-surface-container rounded-xl border border-outline-variant/30 p-8 shadow-lg flex flex-col gap-4">
-            <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary border border-outline-variant/50">
-              <BrainCircuit size={24} />
-            </div>
+          <section className="bg-surface-container rounded-xl p-8 shadow-lg flex flex-col gap-4">
             <h2 className="text-xl font-bold text-on-surface">Proposed Solution</h2>
             <p className="text-sm text-on-surface-variant leading-relaxed">
               AgriSense AI applies supervised machine learning classification to analyze
@@ -56,15 +47,12 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             </p>
           </section>
 
-          <section className="bg-surface-container rounded-xl border border-outline-variant/30 p-8 shadow-lg flex flex-col gap-4">
-            <div className="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary border border-outline-variant/50">
-              <Layers size={24} />
-            </div>
+          <section className="bg-surface-container rounded-xl p-8 shadow-lg flex flex-col gap-4">
             <h2 className="text-xl font-bold text-on-surface">Technology Stack</h2>
             <p className="text-sm text-on-surface-variant leading-relaxed">Built with a modern, full-stack architecture optimized for speed and clarity.</p>
             <div className="flex flex-wrap gap-2 mt-auto">
               {['React', 'TypeScript', 'Vite', 'FastAPI', 'Python', 'scikit-learn', 'pandas', 'Lucide React'].map(t => (
-                <span key={t} className="px-2 py-1 bg-surface-container-low border border-outline-variant/50 rounded text-[11px] font-medium text-outline uppercase tracking-wider">
+                <span key={t} className="px-2 py-1 bg-surface-container-low rounded text-[11px] font-medium text-outline uppercase tracking-wider">
                   {t}
                 </span>
               ))}
@@ -73,20 +61,17 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
         </div>
 
         {/* How it works workflow */}
-        <section className="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-8 md:p-12 shadow-lg">
+        <section className="bg-surface-container-lowest rounded-xl p-8 md:p-12 shadow-lg">
           <h2 className="text-2xl font-bold text-on-surface mb-8">How AgriSense Works</h2>
           <div className="flex flex-col gap-6">
             {[
-              { num: '01', title: 'Collect Field Data',           desc: 'Enter soil macronutrients (N, P, K), soil pH, ambient temperature, relative humidity, and seasonal rainfall for your field.' },
-              { num: '02', title: 'Data Validation & Processing', desc: 'Inputs are validated, range-checked, and formatted into a structured feature vector ready for model inference.' },
-              { num: '03', title: 'ML Model Inference',           desc: 'A Random Forest classifier trained on 2,200 agricultural samples evaluates the feature vector against learned decision boundaries.' },
-              { num: '04', title: 'Crop Recommendation',          desc: 'The model returns a ranked prediction with confidence scores for the top crop matches given the submitted conditions.' },
-              { num: '05', title: 'Informed Decision',            desc: 'Farmers and agronomists use the recommendation as one data-driven input alongside local knowledge and professional advice.' },
-            ].map(({ num, title, desc }) => (
-              <div key={num} className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
-                <div className="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center font-mono font-bold text-primary border border-outline-variant/50 shrink-0">
-                  {num}
-                </div>
+              { title: 'Collect Field Data',           desc: 'Enter soil macronutrients (N, P, K), soil pH, ambient temperature, relative humidity, and seasonal rainfall for your field.' },
+              { title: 'Data Validation & Processing', desc: 'Inputs are validated, range-checked, and formatted into a structured feature vector ready for model inference.' },
+              { title: 'ML Model Inference',           desc: 'A Random Forest classifier trained on 2,200 agricultural samples evaluates the feature vector against learned decision boundaries.' },
+              { title: 'Crop Recommendation',          desc: 'The model returns a ranked prediction with confidence scores for the top crop matches given the submitted conditions.' },
+              { title: 'Informed Decision',            desc: 'Farmers and agronomists use the recommendation as one data-driven input alongside local knowledge and professional advice.' },
+            ].map(({ title, desc }) => (
+              <div key={title} className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
                 <div className="flex flex-col pt-1">
                   <h3 className="text-lg font-bold text-on-surface mb-1">{title}</h3>
                   <p className="text-sm text-on-surface-variant leading-relaxed">{desc}</p>
@@ -97,7 +82,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
         </section>
 
         {/* Architecture Flow */}
-        <section className="bg-surface-container rounded-xl border border-outline-variant/30 p-8 shadow-lg">
+        <section className="bg-surface-container rounded-xl p-8 shadow-lg">
           <div className="mb-8">
             <h2 className="text-2xl font-bold text-on-surface">System Architecture</h2>
             <p className="text-sm text-on-surface-variant mt-2">End-to-end request flow from field data input to model recommendation output.</p>
@@ -112,7 +97,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               { label: 'Prediction Result',      sub: 'Top Crops & Confidence', highlight: true },
             ].map(({ label, sub, highlight }, i, arr) => (
               <React.Fragment key={label}>
-                <div className={`flex flex-col items-center justify-center text-center p-4 rounded-xl border min-w-[160px] h-[100px] ${highlight ? 'bg-primary/10 border-primary/30' : 'bg-surface-container-low border-outline-variant/30'}`}>
+                <div className={`flex flex-col items-center justify-center text-center p-4 rounded-xl min-w-[160px] h-[100px] ${highlight ? 'bg-primary/10' : 'bg-surface-container-low'}`}>
                   <span className={`text-[13px] font-bold mb-1 ${highlight ? 'text-primary' : 'text-on-surface'}`}>{label}</span>
                   <small className="text-[10px] uppercase tracking-widest text-outline">{sub}</small>
                 </div>
@@ -132,11 +117,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
         </section>
 
         {/* CTA */}
-        <section className="bg-primary/10 rounded-xl border border-primary/30 p-10 flex flex-col items-center text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 text-primary border border-primary/30 w-fit mb-6">
-            <Leaf size={13} />
-            <span className="text-[11px] font-semibold tracking-wider uppercase">Try It Now</span>
-          </div>
+        <section className="bg-primary/10 rounded-xl p-10 flex flex-col items-center text-center">
           <h2 className="text-3xl font-bold text-on-surface mb-3">Analyze your field conditions</h2>
           <p className="text-[16px] text-on-surface-variant max-w-lg mb-8">
             Enter your soil and weather data to receive an instant AI-powered

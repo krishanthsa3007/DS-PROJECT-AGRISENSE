@@ -33,10 +33,6 @@ const InsightsPage: React.FC<InsightsPageProps> = ({
         
         {/* Header */}
         <div className="mb-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/50 w-fit mb-4">
-            <Activity size={13} className="text-primary" />
-            <span className="text-[11px] font-semibold tracking-wider uppercase text-on-surface-variant">Machine Learning Insights</span>
-          </div>
           <h1 className="text-3xl md:text-4xl font-bold text-on-surface tracking-tight mb-4">Model Evaluation & Analytics</h1>
           <p className="text-[16px] text-on-surface-variant max-w-2xl leading-relaxed">
             Verified performance metrics, comparative algorithm benchmarks, and feature
@@ -54,7 +50,7 @@ const InsightsPage: React.FC<InsightsPageProps> = ({
               { title: 'Recall',          value: formatPct(modelInfo.recall),     sub: 'Weighted Sensitivity' },
               { title: 'F1 Score',        value: formatPct(modelInfo.f1_score),   sub: 'Harmonic Mean', highlight: true },
             ].map(({ title, value, sub, highlight }) => (
-              <div key={title} className={`p-5 rounded-xl border flex flex-col ${highlight ? 'bg-primary/10 border-primary/30' : 'bg-surface-container border-outline-variant/30'}`}>
+              <div key={title} className={`p-5 rounded-xl flex flex-col ${highlight ? 'bg-primary/10' : 'bg-surface-container'}`}>
                 <span className="text-sm font-semibold text-on-surface-variant mb-1">{title}</span>
                 <strong className={`text-2xl font-bold ${highlight ? 'text-primary' : 'text-on-surface'} mb-1`}>{value}</strong>
                 <small className="text-[11px] text-outline font-medium uppercase tracking-wider">{sub}</small>
@@ -71,7 +67,6 @@ const InsightsPage: React.FC<InsightsPageProps> = ({
                 <h2 className="text-xl font-bold text-on-surface">Dataset Overview</h2>
                 <p className="text-sm text-on-surface-variant">Training data composition and split information.</p>
               </div>
-              <Database size={24} className="text-tertiary opacity-70" aria-hidden="true" />
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[

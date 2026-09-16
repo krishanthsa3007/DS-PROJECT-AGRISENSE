@@ -56,13 +56,33 @@ const Header: React.FC<HeaderProps> = ({ page, theme, onNavigate, onThemeChange 
           </nav>
 
           <div className="flex items-center gap-3">
-            <button 
-              className="w-8 h-8 rounded-full flex items-center justify-center text-on-surface-variant hover:text-primary hover:bg-surface-container-high transition-colors focus:outline-none" 
-              onClick={toggleTheme}
-              title="Toggle Theme"
-            >
-              {theme === 'dark' ? <Moon size={18} /> : theme === 'light' ? <Sun size={18} /> : <Monitor size={18} />}
-            </button>
+            <div className="flex items-center bg-surface-container-highest rounded-full p-0.5 border border-outline-variant/30" aria-label="Theme selector">
+              <button 
+                onClick={() => onThemeChange('dark')}
+                className={`w-7 h-7 rounded-full flex items-center justify-center transition-all focus:outline-none ${theme === 'dark' ? 'bg-surface shadow-sm text-primary' : 'text-on-surface-variant hover:text-on-surface'}`}
+                title="Dark Mode"
+                aria-pressed={theme === 'dark'}
+              >
+                <Moon size={14} />
+              </button>
+              <button 
+                onClick={() => onThemeChange('system')}
+                className={`w-7 h-7 rounded-full flex items-center justify-center transition-all focus:outline-none ${theme === 'system' ? 'bg-surface shadow-sm text-primary' : 'text-on-surface-variant hover:text-on-surface'}`}
+                title="System Theme"
+                aria-pressed={theme === 'system'}
+              >
+                <Monitor size={14} />
+              </button>
+              <button 
+                onClick={() => onThemeChange('light')}
+                className={`w-7 h-7 rounded-full flex items-center justify-center transition-all focus:outline-none ${theme === 'light' ? 'bg-surface shadow-sm text-primary' : 'text-on-surface-variant hover:text-on-surface'}`}
+                title="Light Mode"
+                aria-pressed={theme === 'light'}
+              >
+                <Sun size={14} />
+              </button>
+            </div>
+            
             <button 
               className="hidden sm:inline-flex items-center justify-center h-8 px-4 rounded-full bg-primary text-on-primary font-semibold text-[12px] hover:bg-primary-container transition-all focus:outline-none shadow-sm"
               onClick={() => handleNav('Recommendation')}

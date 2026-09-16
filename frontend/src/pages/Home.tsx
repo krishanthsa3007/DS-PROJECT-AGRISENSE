@@ -53,10 +53,6 @@ const HomePage: React.FC<HomePageProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Text Narrative Column */}
             <div className="lg:col-span-6 flex flex-col gap-6 z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/50 w-fit">
-                <Leaf size={12} className="text-primary" />
-                <span className="text-[11px] font-semibold tracking-wider uppercase text-on-surface-variant">Agricultural Decision Support</span>
-              </div>
               <h1 className="text-4xl lg:text-5xl font-bold text-on-surface tracking-tight leading-[1.12] max-w-xl">
                 Understand the field. <br /><span className="font-normal text-tertiary">Grow with confidence.</span>
               </h1>
@@ -84,7 +80,7 @@ const HomePage: React.FC<HomePageProps> = ({
 
             {/* 5-Stage Narrative Stage Viewer (Inside existing hero image container) */}
             <div className="lg:col-span-6 flex flex-col gap-4 mt-8 lg:mt-0">
-              <div className="relative w-full rounded-xl bg-surface-container overflow-hidden shadow-xl aspect-[16/11] border border-outline-variant/30">
+              <div className="relative w-full rounded-xl bg-surface-container overflow-hidden shadow-xl aspect-[16/11]">
                 <div className="relative w-full h-full bg-surface-container-lowest">
                   {HERO_IMAGES.map((src, idx) => {
                     const altTexts = [
@@ -120,7 +116,7 @@ const HomePage: React.FC<HomePageProps> = ({
                   return (
                     <div
                       key={stage}
-                      className={`flex-1 min-w-[70px] py-2.5 px-1 text-center rounded-lg border text-[11px] font-bold tracking-widest uppercase transition-all duration-300 ${isActive ? 'bg-primary/10 border-primary/40 text-primary shadow-sm shadow-primary/20' : 'bg-surface-container-low border-outline-variant/30 text-on-surface-variant'}`}
+                      className={`flex-1 min-w-[70px] py-2.5 px-1 text-center rounded-lg text-[11px] font-bold tracking-widest uppercase transition-all duration-300 ${isActive ? 'bg-primary/10 border border-primary/40 text-primary shadow-sm shadow-primary/20' : 'bg-surface-container-low text-on-surface-variant'}`}
                     >
                       {stage}
                     </div>
@@ -133,7 +129,7 @@ const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* ── STATS ── */}
-      <section className="w-full bg-surface-container-lowest border-y border-outline-variant/30 py-12">
+      <section className="w-full bg-surface-container-lowest py-12">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
             {[
@@ -143,7 +139,7 @@ const HomePage: React.FC<HomePageProps> = ({
               { value: evaluatedModelsCount, label: 'Models Evaluated' },
               { value: modelInfo ? formatPct(modelInfo.f1_score) : '99.5%', label: 'Best F1 Score', highlight: true },
             ].map(({ value, label, highlight }) => (
-              <div key={label} className={`flex flex-col p-4 rounded-lg ${highlight ? 'bg-primary/10 border border-primary/30' : 'bg-surface-container border border-outline-variant/30'}`}>
+              <div key={label} className={`flex flex-col p-4 rounded-lg ${highlight ? 'bg-primary/10' : 'bg-surface-container'}`}>
                 <strong className={`text-2xl font-bold ${highlight ? 'text-primary' : 'text-on-surface'}`}>{value}</strong>
                 <span className="text-sm text-on-surface-variant font-medium mt-1">{label}</span>
               </div>
@@ -153,7 +149,7 @@ const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* ── FIELD INTELLIGENCE — YOUR FIELD, MEASURED ── */}
-      <section className="w-full bg-surface-container-low py-16 border-b border-outline-variant/30" id="field-intelligence">
+      <section className="w-full bg-surface-container-low py-16" id="field-intelligence">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex flex-col mb-8 gap-2">
             <h2 className="text-2xl md:text-3xl font-bold text-on-surface">Your Field, Measured</h2>
@@ -163,7 +159,7 @@ const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Clean Aerial Photo */}
-          <div className="relative w-full rounded-xl overflow-hidden bg-surface-container border border-outline-variant/30 shadow-xl flex flex-col">
+          <div className="relative w-full rounded-xl overflow-hidden bg-surface-container shadow-xl flex flex-col">
             <div className="relative h-[380px] sm:h-[480px] md:h-[580px] w-full bg-surface-container-lowest">
               <img 
                 alt="Agricultural field" 
@@ -173,7 +169,7 @@ const HomePage: React.FC<HomePageProps> = ({
             </div>
             
             {/* Meaningful Metrics Below Photo */}
-            <div className="bg-surface-container p-4 md:p-6 border-t border-outline-variant/30">
+            <div className="bg-surface-container p-4 md:p-6">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-[12px] font-bold uppercase tracking-wider text-on-surface">Field Parameters</span>
               </div>
@@ -187,7 +183,7 @@ const HomePage: React.FC<HomePageProps> = ({
                   { label: 'Soil pH', value: '6.4' },
                   { label: 'Rainfall', value: '210 mm' }
                 ].map((metric) => (
-                  <div key={metric.label} className="p-3 rounded-lg bg-surface-container-high border border-outline-variant/30 flex flex-col gap-1">
+                  <div key={metric.label} className="p-3 rounded-lg bg-surface-container-high flex flex-col gap-1">
                     <div className="text-outline text-[11px] font-medium tracking-wide">
                       {metric.label}
                     </div>
@@ -214,19 +210,14 @@ const HomePage: React.FC<HomePageProps> = ({
                 { title: 'ML Analysis', desc: 'A trained classifier processes the data to find patterns associated with high yield.' },
                 { title: 'Recommendation', desc: 'Returns the most optimal crop with a confidence score and alternatives.' }
               ].map((step, idx) => (
-                <div key={idx} className="flex gap-4 items-start">
-                  <div className="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-primary text-sm flex-shrink-0 border border-outline-variant/30">
-                    {idx + 1}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-on-surface mb-1">{step.title}</h4>
-                    <p className="text-sm text-on-surface-variant">{step.desc}</p>
-                  </div>
+                <div key={idx} className="flex flex-col pt-1">
+                  <h4 className="font-bold text-on-surface mb-1">{step.title}</h4>
+                  <p className="text-sm text-on-surface-variant">{step.desc}</p>
                 </div>
               ))}
             </div>
           </div>
-          <div className="bg-surface-container-low rounded-xl p-8 border border-outline-variant/30">
+          <div className="bg-surface-container-low rounded-xl p-8">
             <h3 className="text-lg font-bold text-on-surface mb-6 text-center">Feature Importance Analysis</h3>
             <InfluenceMap importance={activeImportance} />
           </div>
@@ -234,18 +225,26 @@ const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* ── CTA ── */}
-      <section className="w-full py-20 bg-surface-container border-t border-outline-variant/30 text-center flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-bold text-on-surface mb-4">Ready to analyze your field?</h2>
-        <p className="text-on-surface-variant mb-8 max-w-lg">
-          Enter your soil metrics and environmental conditions to get a data-driven crop recommendation.
-        </p>
-        <button
-          type="button"
-          className="inline-flex items-center justify-center h-12 px-8 rounded-lg bg-primary text-on-primary font-bold text-[14px] hover:bg-primary-container transition-all shadow-lg"
-          onClick={() => onNavigate('Recommendation')}
-        >
-          Get Recommendation <ArrowRight size={18} className="ml-2" aria-hidden="true" />
-        </button>
+      <section className="w-full py-20 bg-surface text-center flex flex-col items-center justify-center px-4 md:px-8">
+        <div className="relative w-full max-w-5xl rounded-[2rem] overflow-hidden shadow-2xl">
+          <img src="/agrisense-assets/ready-analysis.png" alt="" role="presentation" className="absolute inset-0 w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#07130E]/90 via-[#13251B]/70 to-[#07130E]/90 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-[#0A1711]/50 backdrop-blur-[2px]"></div>
+          
+          <div className="relative z-10 py-16 px-6 md:px-12 flex flex-col items-center justify-center">
+            <h2 className="text-3xl font-bold text-white mb-4">Ready to analyze your field?</h2>
+            <p className="text-[#B7C2B8] mb-8 max-w-lg font-medium">
+              Enter your soil metrics and environmental conditions to get a data-driven crop recommendation.
+            </p>
+            <button
+              type="button"
+              className="inline-flex items-center justify-center h-12 px-8 rounded-lg bg-[#8FBE63] text-[#002404] font-bold text-[14px] hover:bg-[#a5d575] transition-all shadow-lg shadow-black/20"
+              onClick={() => onNavigate('Recommendation')}
+            >
+              Get Recommendation <ArrowRight size={18} className="ml-2" aria-hidden="true" />
+            </button>
+          </div>
+        </div>
       </section>
 
     </main>

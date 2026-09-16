@@ -53,10 +53,6 @@ const RecommendationPage: React.FC<RecommendationPageProps> = ({
         
         {/* Header */}
         <div className="mb-10 text-center flex flex-col items-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/50 w-fit mb-4">
-            <BrainCircuit size={13} className="text-primary" />
-            <span className="text-[11px] font-semibold tracking-wider uppercase text-on-surface-variant">AI Field Analysis</span>
-          </div>
           <h1 className="text-3xl md:text-4xl font-bold text-on-surface tracking-tight mb-4">Crop Recommendation Engine</h1>
           <p className="text-[16px] text-on-surface-variant max-w-2xl leading-relaxed">
             Enter your field's soil nutrients and environmental parameters to generate
@@ -75,7 +71,7 @@ const RecommendationPage: React.FC<RecommendationPageProps> = ({
               : i === 3;
             return (
               <React.Fragment key={label}>
-                <div className={`flex items-center gap-2 px-4 py-2 rounded-lg border ${active ? 'bg-primary/10 border-primary/30 text-primary' : done ? 'bg-surface-container border-outline-variant/50 text-on-surface' : 'bg-surface-container border-outline-variant/20 text-on-surface-variant'}`}>
+                <div className={`flex items-center gap-2 px-4 py-2 rounded-lg ${active ? 'bg-primary/10 text-primary' : done ? 'bg-surface-container text-on-surface' : 'bg-surface-container text-on-surface-variant'}`}>
                   <span className="w-5 h-5 rounded-full bg-surface-container-high flex items-center justify-center text-[11px] font-bold">
                     {done ? <CheckCircle2 size={12} className="text-primary" /> : i + 1}
                   </span>
@@ -90,14 +86,14 @@ const RecommendationPage: React.FC<RecommendationPageProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* ── INPUT PANEL ── */}
-          <form className="lg:col-span-7 bg-surface-container rounded-xl border border-outline-variant/30 p-6 shadow-lg flex flex-col gap-8" onSubmit={onSubmit} noValidate>
+          <form className="lg:col-span-7 bg-surface-container rounded-xl p-6 shadow-lg flex flex-col gap-8" onSubmit={onSubmit} noValidate>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
                 <h2 className="text-xl font-bold text-on-surface">Analyze Your Field</h2>
                 <span className="text-sm text-on-surface-variant">7 metrics required</span>
               </div>
               <div className="flex gap-2">
-                <button type="button" className="px-3 py-1.5 rounded-lg border border-outline-variant/50 text-sm font-medium hover:bg-surface-container-high transition-colors" onClick={onPresetData}>
+                <button type="button" className="px-3 py-1.5 rounded-lg bg-surface-container-high text-sm font-medium hover:bg-surface-container-highest transition-colors" onClick={onPresetData}>
                   Preset
                 </button>
                 <button type="button" className="px-3 py-1.5 rounded-lg border border-transparent text-sm font-medium text-error hover:bg-error/10 transition-colors flex items-center gap-1.5" onClick={onReset}>
@@ -108,7 +104,7 @@ const RecommendationPage: React.FC<RecommendationPageProps> = ({
 
             {/* Soil Section */}
             <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-2 pb-2 border-b border-outline-variant/20">
+              <div className="flex items-center gap-2 pb-2">
                 <Layers size={18} className="text-tertiary" />
                 <h3 className="font-semibold text-on-surface">Soil Parameters</h3>
               </div>
@@ -128,7 +124,7 @@ const RecommendationPage: React.FC<RecommendationPageProps> = ({
                       value={formState[field.key]}
                       onChange={e => onInputChange(field.key, e.target.value)}
                       placeholder={String(field.defaultValue)}
-                      className="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg px-3 py-2 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-outline"
+                      className="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg px-3 py-2 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-outline"
                     />
                     <span className="text-[11px] text-outline mt-0.5">{field.note}</span>
                   </div>
@@ -138,7 +134,7 @@ const RecommendationPage: React.FC<RecommendationPageProps> = ({
 
             {/* Weather Section */}
             <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-2 pb-2 border-b border-outline-variant/20">
+              <div className="flex items-center gap-2 pb-2">
                 <CloudRain size={18} className="text-info" />
                 <h3 className="font-semibold text-on-surface">Environmental Parameters</h3>
               </div>
@@ -158,14 +154,14 @@ const RecommendationPage: React.FC<RecommendationPageProps> = ({
                       value={formState[field.key]}
                       onChange={e => onInputChange(field.key, e.target.value)}
                       placeholder={String(field.defaultValue)}
-                      className="w-full bg-surface-container-lowest border border-outline-variant/50 rounded-lg px-3 py-2 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-outline"
+                      className="w-full bg-surface-container-lowest border border-outline-variant/30 rounded-lg px-3 py-2 text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder:text-outline"
                     />
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-4 border-t border-outline-variant/20">
+            <div className="pt-4">
               <button
                 type="submit"
                 disabled={loading}
@@ -180,21 +176,17 @@ const RecommendationPage: React.FC<RecommendationPageProps> = ({
           {/* ── RESULT PANEL ── */}
           <div className="lg:col-span-5 relative">
             {!predictionResult && !loading && (
-              <div className="bg-surface-container-low rounded-xl border border-outline-variant/30 border-dashed p-10 flex flex-col items-center justify-center text-center h-[500px]">
-                <div className="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-outline mb-4">
-                  <Sprout size={28} />
-                </div>
+              <div className="bg-surface-container-low rounded-xl p-10 flex flex-col items-center justify-center text-center h-[500px]">
                 <h3 className="text-lg font-semibold text-on-surface mb-2">Awaiting Data</h3>
                 <p className="text-sm text-on-surface-variant max-w-xs">Fill in your field metrics and run analysis to get recommendations.</p>
               </div>
             )}
 
             {loading && (
-              <div className="bg-surface-container-low rounded-xl border border-outline-variant/30 p-10 flex flex-col items-center justify-center text-center h-[500px]">
-                <div className="relative w-20 h-20 mb-6 flex items-center justify-center">
+              <div className="bg-surface-container-low rounded-xl p-10 flex flex-col items-center justify-center text-center h-[500px]">
+                <div className="relative w-16 h-16 mb-6">
                   <div className="absolute inset-0 border-4 border-surface-container-high rounded-full"></div>
                   <div className="absolute inset-0 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-                  <Leaf size={24} className="text-primary animate-pulse" />
                 </div>
                 <h3 className="text-lg font-semibold text-primary mb-2">Analyzing Field</h3>
                 <p className="text-sm text-on-surface-variant max-w-xs animate-pulse">{LOADING_MESSAGES[loadingMsgIdx]}</p>
@@ -220,14 +212,14 @@ const RecommendationPage: React.FC<RecommendationPageProps> = ({
               const cropDescription = cropDescriptions[cropName] || `${predictionResult.recommended_crop.charAt(0).toUpperCase() + predictionResult.recommended_crop.slice(1)} performs best under the specific temperature, moisture, and soil nutrient profile you provided. Ensure proper agronomic practices to support healthy growth and maximize yield.`;
 
               return (
-              <div className="bg-surface-container rounded-xl border border-primary/40 shadow-xl overflow-hidden flex flex-col">
-                <div className="bg-surface-container-highest border-b border-outline-variant/30 px-6 py-4 flex items-center justify-between">
+              <div className="bg-surface-container rounded-xl shadow-xl overflow-hidden flex flex-col">
+                <div className="bg-surface-container-highest px-6 py-4 flex items-center justify-between">
                   <div className="flex items-center gap-2 text-primary font-semibold text-sm uppercase tracking-wider">
                     <CheckCircle2 size={16} /> Result Ready
                   </div>
                 </div>
                 
-                <div className="flex flex-col items-center border-b border-outline-variant/20 relative overflow-hidden">
+                <div className="flex flex-col items-center relative overflow-hidden">
                   <div className="w-full h-40 relative">
                     <img 
                       src={cropImage} 
@@ -252,7 +244,7 @@ const RecommendationPage: React.FC<RecommendationPageProps> = ({
                       </div>
                     </div>
                     
-                    <div className="w-full border-t border-outline-variant/30 pt-6 mt-2 text-center">
+                    <div className="w-full pt-6 mt-2 text-center">
                       <h4 className="text-[11px] font-bold text-outline uppercase tracking-wider mb-2">About this crop</h4>
                       <p className="text-sm text-on-surface-variant leading-relaxed">
                         {cropDescription}
