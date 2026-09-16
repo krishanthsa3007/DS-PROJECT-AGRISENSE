@@ -116,7 +116,7 @@ const HomePage: React.FC<HomePageProps> = ({
                   return (
                     <div
                       key={stage}
-                      className={`flex-1 min-w-[70px] py-2.5 px-1 text-center rounded-lg text-[11px] font-bold tracking-widest uppercase transition-all duration-300 ${isActive ? 'bg-primary/10 border border-primary/40 text-primary shadow-sm shadow-primary/20' : 'bg-surface-container-low text-on-surface-variant'}`}
+                      className={`flex-1 min-w-[70px] py-2.5 px-1 text-center rounded-lg text-[11px] font-bold tracking-widest uppercase transition-colors duration-300 ${isActive ? 'bg-[#239B56] text-white dark:text-black' : 'bg-[#2ECC71] text-white dark:text-black'}`}
                     >
                       {stage}
                     </div>
